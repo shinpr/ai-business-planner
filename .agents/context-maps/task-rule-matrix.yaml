@@ -1,0 +1,201 @@
+# Task-Rule Mapping Matrix
+# Maps business planning tasks to relevant rules
+# Used by task-analysis.md to recommend appropriate rules for each task type
+
+rules:
+  # Core Rules
+  core/metacognition:
+    path: ".agents/rules/core/metacognition.md"
+    tags: [self-assessment, reflection, decision-checkpoint, quality-control]
+    when_to_load:
+      - "Task type changes (e.g., from planning to requirements)"
+      - "Unexpected issues occur repeatedly"
+      - "Completing a meaningful unit of work"
+      - "Before starting new phase"
+    typical_tasks: [all]
+    size: small
+    priority: always
+    description: "Self-assessment and reflection protocols for maintaining quality"
+
+  core/documentation-criteria:
+    path: ".agents/rules/core/documentation-criteria.md"
+    tags: [documentation, business-plan, requirements-doc, decision-matrix, scale-assessment]
+    when_to_load:
+      - "Task scale assessment (Simple/Standard/Complex)"
+      - "Business decisions needed"
+      - "Creating business documentation"
+      - "New project planning"
+    typical_tasks: [planning, documentation, decision-making]
+    size: medium
+    priority: medium
+    description: "Criteria for when and how to create business documentation"
+
+  # Business Rules
+  business/business-model-canvas:
+    path: ".agents/rules/business/business-model-canvas.md"
+    tags: [business-model, value-proposition, revenue-streams, cost-structure]
+    when_to_load:
+      - "Creating business plan"
+      - "Defining business model"
+      - "Revenue model design"
+    typical_tasks: [business-planning]
+    size: medium
+    priority: high
+    description: "Business Model Canvas framework for business model design"
+
+  business/value-proposition:
+    path: ".agents/rules/business/value-proposition.md"
+    tags: [value-proposition, customer-jobs, pains, gains]
+    when_to_load:
+      - "Defining product value"
+      - "Creating business plan"
+      - "Market positioning"
+    typical_tasks: [business-planning, requirements]
+    size: medium
+    priority: high
+    description: "Value Proposition Canvas for defining customer value"
+
+  business/market-analysis:
+    path: ".agents/rules/business/market-analysis.md"
+    tags: [market-research, competitive-analysis, target-market, persona]
+    when_to_load:
+      - "Market research needed"
+      - "Competitive analysis"
+      - "Creating business plan"
+    typical_tasks: [business-planning, research]
+    size: medium
+    priority: high
+    description: "Market analysis methodologies and competitive analysis frameworks"
+
+  business/mvp-definition:
+    path: ".agents/rules/business/mvp-definition.md"
+    tags: [mvp, core-features, hypothesis-testing, lean-startup]
+    when_to_load:
+      - "Defining requirements"
+      - "Creating prototype scope"
+      - "Feature prioritization"
+    typical_tasks: [requirements, prototype-planning]
+    size: medium
+    priority: high
+    description: "MVP definition methodologies and feature prioritization"
+
+  business/prompt-engineering:
+    path: ".agents/rules/business/prompt-engineering.md"
+    tags: [prompt-generation, ai-prototyping, genspark, v0]
+    when_to_load:
+      - "Generating prototype prompts"
+      - "AI tool integration"
+      - "Prototype creation"
+    typical_tasks: [prompt-generation]
+    size: medium
+    priority: high
+    description: "Prompt engineering best practices for prototype generation"
+
+  business/design-thinking:
+    path: ".agents/rules/business/design-thinking.md"
+    tags: [design-thinking, user-experience, ui-ux, design-system]
+    when_to_load:
+      - "Creating design requirements"
+      - "UI/UX design"
+      - "User experience planning"
+    typical_tasks: [design-specification]
+    size: medium
+    priority: conditional
+    description: "Design thinking methodologies for product design"
+
+  business/decision-framework:
+    path: ".agents/rules/business/decision-framework.md"
+    tags: [decision-making, go-nogo, risk-assessment, business-judgment]
+    when_to_load:
+      - "Recording decisions"
+      - "Go/NoGo decision points"
+      - "Risk assessment"
+    typical_tasks: [decision-recording, planning]
+    size: small
+    priority: medium
+    description: "Decision-making frameworks and documentation standards"
+
+# Task Type to Rule Mapping
+task_mappings:
+  business_planning:
+    required:
+      - "core/documentation-criteria"
+      - "business/business-model-canvas"
+      - "business/value-proposition"
+      - "business/market-analysis"
+    recommended:
+      - "core/metacognition"
+
+  requirements_definition:
+    required:
+      - "business/mvp-definition"
+      - "business/value-proposition"
+      - "core/documentation-criteria"
+    recommended:
+      - "core/metacognition"
+
+  prompt_generation:
+    required:
+      - "business/prompt-engineering"
+      - "business/mvp-definition"
+    recommended:
+      - "core/metacognition"
+    conditional:
+      - "business/design-thinking"  # If design requirements exist
+
+  design_specification:
+    required:
+      - "business/design-thinking"
+      - "core/documentation-criteria"
+    recommended:
+      - "core/metacognition"
+
+  session_processing:
+    required:
+      - "core/documentation-criteria"
+    recommended:
+      - "core/metacognition"
+      - "business/decision-framework"
+
+  decision_recording:
+    required:
+      - "business/decision-framework"
+      - "core/documentation-criteria"
+    recommended:
+      - "core/metacognition"
+
+  research:
+    required:
+      - "business/market-analysis"
+    recommended:
+      - "core/metacognition"
+
+# Universal Rule Loading (No Scale-Based Variations)
+# All business planning uses full rule set because decisions involve people and money
+universal_business_planning:
+  load_immediately:
+    - "core/documentation-criteria"
+    - "core/metacognition"
+  load_by_phase:
+    phase_1_business_plan:
+      - "business/business-model-canvas"
+      - "business/value-proposition"
+      - "business/market-analysis"
+    phase_2_requirements:
+      - "business/mvp-definition"
+    phase_3_design:
+      - "business/design-thinking"  # If user chooses design
+    phase_4_prompts:
+      - "business/prompt-engineering"
+    phase_5_decision:
+      - "business/decision-framework"
+
+# Metadata for rule selection algorithm
+selection_rules:
+  - "Always load core/metacognition at session start"
+  - "ALL business planning uses full workflow (business-planning-workflow.md)"
+  - "NO scale-based shortcuts - business decisions involve people and money"
+  - "Load rules progressively by phase, not all at once"
+  - "Always ask about design specifications (don't assume no design)"
+  - "Always review past decisions (projects/*/06-decisions/) in Phase 1"
+  - "Unload task-specific rules after task completion"
