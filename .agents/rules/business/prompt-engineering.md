@@ -54,11 +54,16 @@ Best practices for crafting effective prompts for AI-powered prototype generatio
    - Acceptance criteria
    - Priority indicators
 
-5. TECHNICAL SPECS
-   - Platform requirements
-   - Technology preferences
-   - Performance expectations
-   - Integration needs
+5. TECHNICAL SPECS (Prototype Context Only)
+   - Platform: Web/Mobile/Desktop
+   - Browser/device support
+   - Responsive requirements
+
+   DO NOT INCLUDE for prototypes:
+   - Backend tech stack
+   - Database specifications
+   - API architectures
+   - Server configurations
 
 6. DESIGN GUIDANCE
    - UI/UX preferences

@@ -102,11 +102,20 @@ paginate: true
 - Apply visual hierarchy
 
 ### Step 5: Quality Check
-- One key message per slide
-- No text overload
-- Clear narrative flow
-- Data properly cited
-- Compelling story
+
+**Critical: Content Quality (affects decision-maker persuasion)**
+- ✅ **One key message per slide** (primary principle)
+  - Each slide addresses only one topic/question
+  - No mixing of multiple concepts (e.g., problem + solution on same slide)
+  - Slide title clearly states the single message
+- Clear narrative flow across slides
+- Compelling story that builds logically
+- Data properly cited with sources
+
+**Critical: Technical Requirements (prevents text cutoff)**
+- No text overload (3-5 bullets max, 500 chars total per slide)
+- Content fits within slide boundaries
+- Proper spacing and readability maintained
 
 ## Deliverables
 
@@ -127,9 +136,20 @@ paginate: true
 style: |
   section {
     background-color: #fff;
+    font-size: 26px;
+    padding: 50px 70px;
   }
   h1 {
     color: #2c3e50;
+    font-size: 2.2em;
+    margin-bottom: 0.4em;
+  }
+  h2 {
+    font-size: 1.6em;
+    margin-bottom: 0.3em;
+  }
+  li {
+    margin-bottom: 0.4em;
   }
 ---
 
@@ -300,10 +320,13 @@ Additional details available on request:
 
 ### Content Guidelines
 - **One idea per slide**: Keep focus clear
+- **Bullet points**: 3-5 items maximum per slide
+- **Text limit**: 150 characters per bullet, 500 characters total per slide
 - **Visual hierarchy**: Use size and color for emphasis
 - **Data-driven**: Include numbers and evidence
 - **Storytelling**: Create narrative arc
 - **Call to action**: Clear ask and next steps
+- **Split long content**: If content exceeds limits, use multiple slides
 
 ### Marp-Specific Tips
 - Use `---` to separate slides
