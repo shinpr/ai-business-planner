@@ -34,6 +34,26 @@ Generate comprehensive prompts for AI-powered prototype generation tools (Genspa
 - Feature priorities
 - Out of scope items
 
+### 2.5. Prototype Scope Limitations [CRITICAL]
+
+**INCLUDE in prototype prompts:**
+- UI/UX specifications (layout, components, interactions)
+- User flows (step-by-step journeys)
+- Visual design (colors, fonts, spacing)
+- Mock data examples (simple JSON structures)
+
+**EXCLUDE from prototype prompts:**
+- Backend implementation details
+- Database schemas (beyond simple examples)
+- API endpoint specifications
+- Authentication/authorization systems
+- Third-party API integration details
+- Deployment and infrastructure
+- Security implementations
+- Performance optimization strategies
+
+**Rule**: If it requires a server or database to work, exclude it from prototype scope.
+
 ### 3. User Flows
 - Primary user journeys
 - Key interactions
@@ -65,23 +85,89 @@ Generate comprehensive prompts for AI-powered prototype generation tools (Genspa
 
 ## Platform-Specific Optimizations
 
+**IMPORTANT**: These sections provide platform-specific guidance.
+During execution, ask user which platform(s) to target and generate optimized prompts accordingly.
+
+### General Prototype Guidelines (All Platforms)
+- Focus on UI/UX, not backend implementation
+- Use mock data (LocalStorage, hardcoded arrays)
+- Describe visual behavior, not backend logic
+- Keep scope to prototype limitations (see Section 2.5)
+
+---
+
 ### For Genspark Developer
-- Emphasize step-by-step build approach
-- Clear feature breakdown
-- Specific component requirements
-- Integration instructions
+**Credit Awareness:**
+- Free tier: ~200 credits/day
+- Large prompts (>1000 lines) may exhaust credits mid-generation
+- Recommendation: Keep prompts focused and under 1000 lines
+
+**Strengths:**
+- Interactive HTML/CSS/JS prototypes
+- Component-based UI
+- Mock data handling
+- Responsive design
+
+**Prompt Optimization:**
+- Emphasize visual prototype scope
+- Provide clear mock data examples
+- Specify component interactions explicitly
+- Exclude backend/database implementation
+- Use step-by-step user flow descriptions
+
+**Example Pattern:**
+```
+Create an interactive HTML/CSS/JavaScript prototype for [product].
+
+SCOPE: Visual prototype for stakeholder approval (NO backend implementation)
+
+SCREENS: [List screens with layout descriptions]
+USER FLOWS: [Step-by-step interactions]
+DESIGN SYSTEM: [Colors, fonts, spacing]
+MOCK DATA: Use LocalStorage with example JSON
+INTERACTIONS: [Click, hover, form validation - frontend only]
+
+EXCLUDE: Backend, database, APIs, authentication
+```
+
+---
 
 ### For v0 (Vercel)
-- Focus on React components
-- Emphasize modern UI/UX
-- Tailwind CSS preferences
+
+**Strengths:**
+- React/Next.js components
+- Modern UI/UX patterns
+- Tailwind CSS integration
 - Component composition
 
+**Prompt Optimization:**
+- Emphasize component structure
+- Specify Tailwind classes for styling
+- Focus on React patterns (hooks, state)
+- Mock data with useState/hardcoded
+- Exclude API calls and backend logic
+
+**Example Pattern:**
+```
+Create React components for [feature].
+
+DESIGN: Modern, responsive using Tailwind CSS
+COMPONENTS: [List with descriptions]
+STATE MANAGEMENT: useState for mock data (no backend)
+USER INTERACTIONS: [Describe React event handlers]
+
+EXCLUDE: API integration, backend, database
+```
+
+---
+
 ### For Other AI Tools
-- Generic, detailed requirements
-- Technology-agnostic descriptions
-- Clear success criteria
+
+**Generic optimization:**
+- Clear, technology-agnostic descriptions
+- Focus on functional requirements
 - Comprehensive feature list
+- Visual design specifications
 
 ## Execution Process
 
@@ -113,9 +199,18 @@ Generate comprehensive prompts for AI-powered prototype generation tools (Genspa
 **Required Information Checklist** (ask only if missing from previous documents):
 
 **Platform Target** (MUST HAVE):
-- [ ] Which AI platform to target? (Genspark, v0, Claude, Cursor, generic)
-- [ ] Any platform-specific requirements or constraints?
-- [ ] Multiple platforms needed?
+- [ ] Which AI platform(s) to target? Options:
+  - Genspark Developer
+  - v0 (Vercel)
+  - Generic (platform-agnostic)
+  - Multiple platforms (specify which)
+- [ ] Generate prompts for:
+  - Single platform only (recommended - optimized output)
+  - Multiple platforms (generic + platform-specific variants)
+- [ ] Any platform-specific constraints? (e.g., Genspark credit budget)
+
+**Recommendation**: Choose single platform for focused optimization.
+Generate platform-specific prompt using guidelines from Section "Platform-Specific Optimizations".
 
 **Prototype Approach** (SHOULD HAVE):
 - [ ] Prototype fidelity level (low/medium/high)?
@@ -152,10 +247,19 @@ Generate comprehensive prompts for AI-powered prototype generation tools (Genspa
 - Make prompt actionable
 
 ### Step 4: Platform-Specific Optimization
-- Create Genspark-specific prompt
-- Create v0-specific prompt
-- Create prompts for other tools as needed
-- Apply platform best practices
+**Based on user's platform choice from Step 0:**
+
+- If single platform chosen:
+  - Create ONE optimized prompt for that platform
+  - Apply platform-specific best practices from Section "Platform-Specific Optimizations"
+  - Include platform-specific constraints (e.g., Genspark credit limits)
+
+- If multiple platforms chosen:
+  - Create generic base prompt
+  - Create platform-specific variants as needed
+  - Apply optimizations per platform guidelines
+
+- Always apply prototype scope limitations (Section 2.5)
 
 ### Step 5: Design Requirements Integration
 - If design spec exists, integrate design elements
@@ -172,13 +276,19 @@ Generate comprehensive prompts for AI-powered prototype generation tools (Genspa
 
 ## Deliverables
 
-Primary:
-- `projects/[project-name]/04-prompts/prototype-prompt.md` (generic)
-- `projects/[project-name]/04-prompts/genspark-prompt.md`
-- `projects/[project-name]/04-prompts/v0-prompt.md`
+**Based on platform choice:**
 
-Supporting:
-- `projects/[project-name]/04-prompts/design-requirements.md` (if applicable)
+If single platform:
+- `projects/[project-name]/04-prompts/[platform]-prompt.md`
+  (e.g., `genspark-prompt.md` or `v0-prompt.md`)
+
+If multiple platforms:
+- `projects/[project-name]/04-prompts/prototype-prompt.md` (generic)
+- `projects/[project-name]/04-prompts/genspark-prompt.md` (if chosen)
+- `projects/[project-name]/04-prompts/v0-prompt.md` (if chosen)
+
+Supporting (always):
+- `projects/[project-name]/04-prompts/design-requirements.md` (if design spec exists)
 - `projects/[project-name]/04-prompts/versions/YYYYMMDD-prompt-v1.md`
 
 ## Generic Prompt Template

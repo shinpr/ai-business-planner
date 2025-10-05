@@ -170,3 +170,23 @@ Create user journey and identify:
 - **Scope too large**: MVP takes too long to build
 - **No hypothesis**: Building without clear validation goal
 - **Kitchen sink MVP**: Trying to serve everyone
+
+## Prototype vs Implementation
+
+**Prototype** (In scope for this workflow):
+- Purpose: Validate concept and get stakeholder approval
+- Deliverable: Interactive UI mockup (HTML/CSS/JS or design tool)
+- Includes: Screens, user flows, visual design, mock data
+- Excludes: Backend, database, real APIs, authentication
+- Tools: Genspark, v0, Figma, Framer
+- Timeline: Hours to days
+
+**Implementation** (Out of scope):
+- Purpose: Build working product
+- Deliverable: Production-ready application
+- Includes: Everything above + backend, database, APIs, security
+- Tools: Development environments, deployment platforms
+- Timeline: Weeks to months
+
+**This workflow stops at Prototype generation.**
+Implementation is handled separately by engineering teams with PRDs.
