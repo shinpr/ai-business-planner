@@ -54,6 +54,69 @@ Generate comprehensive prompts for AI-powered prototype generation tools (Genspa
 
 **Rule**: If it requires a server or database to work, exclude it from prototype scope.
 
+### 2.6. Output Format Principle [CRITICAL]
+
+**Purpose**: Separate machine-executable prompts from human-readable guidance to prevent confusion and ensure clean, copy-pasteable prompts.
+
+**File Separation Strategy**:
+Generate TWO distinct files per platform:
+1. **Prompt file** (`[platform]-prompt.md`): Machine-executable instructions only
+2. **Guide file** (`[platform]-guide.md`): Human-readable usage documentation
+
+**Prompt File Content (what to INCLUDE)**:
+- Direct instructions for the AI tool to execute
+- Content that users will copy-paste verbatim into the AI platform
+- Specifications, requirements, and technical details
+- Examples and mock data that the AI tool should use
+
+**Prompt File Content (what to EXCLUDE)**:
+- Meta-information explaining how to use the prompt
+- Descriptions or introductions about the platform itself
+- Step-by-step instructions for operating the AI tool
+- Suggested workflows after prompt execution
+- Best practices for using the platform
+- Troubleshooting guides
+- Editorial commentary about the prompt
+
+**Guide File Content (what to INCLUDE)**:
+- Platform introduction and capabilities
+- How to access and use the platform
+- Step-by-step usage instructions
+- Best practices and optimization tips
+- Troubleshooting common issues
+- Recommended workflows
+- Examples of iterative improvements
+- Integration and deployment guidance
+
+**Decision Test** (apply to each section before writing):
+```
+Question: "Would I paste this text directly into the AI tool for execution?"
+
+YES → Include in [platform]-prompt.md
+NO  → Include in [platform]-guide.md (if useful for humans)
+```
+
+**Anti-Pattern Example**:
+```markdown
+## About v0 (Vercel) [WRONG - meta-information about platform]
+v0 is an AI-powered UI generator provided by Vercel.
+
+## How to Use v0 [WRONG - usage instructions]
+1. Access v0.dev
+2. Enter your prompt
+
+## Recommended Workflow [WRONG - post-execution guidance]
+1. Generate with v0
+2. Integrate into Next.js
+3. Deploy to Vercel
+```
+
+**Correct Pattern**:
+All above content → `v0-guide.md`
+Pure prompt specifications → `v0-prompt.md`
+
+**Enforcement**: Before completing this task, verify that ALL generated prompt files contain ONLY content that passes the Decision Test.
+
 ### 3. User Flows
 - Primary user journeys
 - Key interactions
@@ -276,20 +339,26 @@ Generate platform-specific prompt using guidelines from Section "Platform-Specif
 
 ## Deliverables
 
-**Based on platform choice:**
+**CRITICAL**: Generate separate prompt and guide files per Section 2.6 Output Format Principle.
 
-If single platform:
-- `projects/[project-name]/04-prompts/[platform]-prompt.md`
-  (e.g., `genspark-prompt.md` or `v0-prompt.md`)
+**For single platform:**
+- `projects/[project-name]/04-prompts/[platform]-prompt.md` (machine-executable only)
+- `projects/[project-name]/04-prompts/[platform]-guide.md` (human usage documentation)
 
-If multiple platforms:
-- `projects/[project-name]/04-prompts/prototype-prompt.md` (generic)
-- `projects/[project-name]/04-prompts/genspark-prompt.md` (if chosen)
-- `projects/[project-name]/04-prompts/v0-prompt.md` (if chosen)
+**For multiple platforms:**
+- `projects/[project-name]/04-prompts/[platform1]-prompt.md` (e.g., `genspark-prompt.md`)
+- `projects/[project-name]/04-prompts/[platform1]-guide.md` (e.g., `genspark-guide.md`)
+- `projects/[project-name]/04-prompts/[platform2]-prompt.md` (e.g., `v0-prompt.md`)
+- `projects/[project-name]/04-prompts/[platform2]-guide.md` (e.g., `v0-guide.md`)
 
-Supporting (always):
+**Supporting files (always):**
 - `projects/[project-name]/04-prompts/design-requirements.md` (if design spec exists)
-- `projects/[project-name]/04-prompts/versions/YYYYMMDD-prompt-v1.md`
+- `projects/[project-name]/04-prompts/versions/YYYYMMDD-[platform]-prompt-v1.md`
+
+**File Content Verification**:
+Before writing each file, apply the Decision Test from Section 2.6:
+- Prompt files: Only content that would be pasted directly into AI tool
+- Guide files: Only content that explains usage to humans
 
 ## Generic Prompt Template
 
@@ -347,43 +416,53 @@ Supporting (always):
 
 ## Completion Conditions
 
-□ Generic prompt created and comprehensive
-□ Platform-specific prompts generated
-□ All MVP features included in prompts
-□ User flows clearly described
+□ Prompt files contain ONLY machine-executable content (passed Decision Test)
+□ Guide files contain ONLY human-readable documentation
+□ Platform-specific prompts generated per platform choice
+□ All MVP features included in prompt files
+□ User flows clearly described in prompts
 □ Design requirements integrated (if applicable)
-□ Technical preferences specified
-□ Success criteria defined
+□ Technical preferences specified in prompts
+□ Success criteria defined in prompts
 □ Prompts tested for clarity and completeness
 □ Prompts actionable for prototype generation
+□ No meta-information or usage instructions in prompt files
 
 ## Common Pitfalls to Avoid
 
-1. **Vague descriptions** → Be specific and detailed
-2. **Missing user flows** → Always include key user journeys
-3. **Ignoring design** → Integrate design requirements if available
-4. **Platform assumptions** → Create generic base, then optimize
-5. **Incomplete feature specs** → Include all Must Have details
-6. **No success criteria** → Define what "done" means
-7. **Overcomplication** → Keep focused on MVP scope
+1. **Mixing prompt and guide content** → CRITICAL: Apply Decision Test strictly
+2. **Including usage instructions in prompts** → Move to guide files
+3. **Vague descriptions** → Be specific and detailed
+4. **Missing user flows** → Always include key user journeys
+5. **Ignoring design** → Integrate design requirements if available
+6. **Platform assumptions** → Create generic base, then optimize
+7. **Incomplete feature specs** → Include all Must Have details
+8. **No success criteria** → Define what "done" means
+9. **Overcomplication** → Keep focused on MVP scope
 
 ## Quality Gates
 
 Before completion:
-- [ ] Generic prompt comprehensive
-- [ ] Genspark-specific prompt optimized
-- [ ] v0-specific prompt optimized
-- [ ] All requirements reflected in prompts
-- [ ] Design elements integrated (if applicable)
-- [ ] User flows clearly described
-- [ ] Success criteria explicit
-- [ ] Prompts tested for clarity
+- [ ] **CRITICAL**: All prompt files pass Decision Test (no meta-content)
+- [ ] **CRITICAL**: Guide files separated from prompt files
+- [ ] Platform-specific prompt files optimized per platform
+- [ ] Platform-specific guide files created with usage documentation
+- [ ] All requirements reflected in prompt files
+- [ ] Design elements integrated in prompts (if applicable)
+- [ ] User flows clearly described in prompts
+- [ ] Success criteria explicit in prompts
+- [ ] Prompts tested for clarity and copy-pasteability
 - [ ] Platform-specific best practices applied
+- [ ] No "how to use" content in prompt files
+- [ ] No "about the platform" content in prompt files
+- [ ] No "recommended workflow" content in prompt files
 
 ## Exit Conditions
 
-□ All prompt documents exist and complete
+□ All prompt files exist and contain ONLY machine-executable content
+□ All guide files exist and contain ONLY human-readable documentation
 □ All completion conditions satisfied
-□ Quality gates passed
+□ All quality gates passed (especially Decision Test)
 □ User approval obtained (STOP POINT in workflow)
-□ Prompts ready for prototype generation
+□ Prompts ready for direct copy-paste into AI tools
+□ Guides ready for human reference
