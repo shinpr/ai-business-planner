@@ -1,211 +1,227 @@
 # AI Business Planner
 
-**事業アイデアから提案まで、一貫したワークフローで事業計画を作成**
+**From idea to proposal—create complete business plans through a guided workflow.**
 
-AIとの対話を通じて、市場調査、事業計画書、プロダクト要求仕様書（PRD）、プロトタイプ開発指示書、提案資料まで体系的に生成します。意思決定を蓄積し、次の計画に活かす学習サイクルを実装しています。
+Talk with AI to generate market research, business plans, product requirements (PRD), prototype specs, and pitch decks. Your previous plans help improve the recommendations over time.
 
-[![AGENTS.md](https://img.shields.io/badge/AGENTS.md-compliant-blue.svg)](https://agents.md)
+## What This Tool Does
 
-## このツールで何ができるか
+1. **Business idea or meeting notes** → AI guides you through a short Q&A to clarify your concept
+2. **Business plan** → Market research, competitive analysis, business model design (brings in relevant insights from your previous projects)
+3. **PRD** → MVP scope, feature priorities (MoSCoW), user stories
+4. **Prototype spec** → Instructions formatted for tools like Genspark or v0
+5. **Pitch deck** → Presentation slides (Marp format, exportable to PDF/PowerPoint)
+6. **Decision tracking** → Extracts insights from meetings to improve your next plan
 
-1. **事業アイデア・議事録** → AIが対話形式でヒアリング
-2. **事業計画書作成** → 市場調査、競合分析、ビジネスモデル設計（過去の意思決定を自動参照）
-3. **PRD作成** → MVP範囲、機能優先順位（MoSCoW）、ユーザーストーリー
-4. **プロトタイプ開発指示書** → Genspark、v0などAI開発ツール向けの包括的なプロンプト
-5. **提案スライド作成** → Marp形式のプレゼンテーション資料
-6. **意思決定の記録と活用** → 会議から自動抽出し、次回の計画精度を向上
+## Who This Is For
 
-## 想定ユーザー
+**Business professionals who use AI tools but aren't technical experts.**
 
-**AIツールは活用できるが、技術の専門家ではないビジネスプロフェッショナル**
+- Business development managers launching new initiatives
+- Startup founders and product managers
+- Leaders looking to improve their planning process
+- Anyone who wants to systematically capture and learn from decisions
 
-- 新規事業の企画・推進を担当するビジネスパーソン
-- スタートアップの経営者・プロダクトマネージャー
-- 事業計画の質を向上させたい事業責任者
-- 意思決定を体系的に記録・蓄積したい企画担当者
+## Setup
 
-## セットアップ
+### What You Need
 
-### 必要なもの
+- **Cursor** (recommended) or **Windsurf**
+  - Cursor: https://cursor.sh/ (free plan available)
+  - Windsurf: https://codeium.com/windsurf (free)
 
-- **Cursor**（推奨）または **Windsurf**
-  - Cursor: https://cursor.sh/
-  - Windsurf: https://codeium.com/windsurf（完全無料）
-- **Git**
+### Installation
 
-### インストール
+**Option 1: Using Git**
 
 ```bash
 git clone https://github.com/shinpr/ai-business-planner.git
 ```
 
-その後、CursorまたはWindsurfで `ai-business-planner` フォルダを開いてください。
+**Option 2: Download ZIP** (if you don't have Git)
 
-## 使い方
+Go to https://github.com/shinpr/ai-business-planner, click the green "Code" button, then "Download ZIP". Unzip the file after downloading.
 
-### 自動ワークフロー（推奨）
+Then open the `ai-business-planner` folder in Cursor or Windsurf.
 
-CursorのComposerまたはWindsurfで、以下のように依頼するだけです：
+## How to Use
 
-```
-オンライン料理教室プラットフォームの事業計画を作成したい
-```
+### Automatic Workflow (Recommended)
 
-AIが自動的に以下のワークフローを実行します：
+In Cursor's Composer or Windsurf, just ask:
 
 ```
-Phase 1: 事業計画書作成
-  ├── 過去の意思決定を自動参照（2回目以降）
-  ├── 対話形式でヒアリング
-  ├── 市場調査（Webで実データ取得）
-  ├── 競合分析
-  ├── ビジネスモデル設計
-  └── レビュー → あなたの承認
-
-Phase 2: PRD作成
-  ├── MVP範囲定義
-  ├── 機能優先順位（MoSCoW）
-  ├── ユーザーストーリー
-  └── レビュー → あなたの承認
-
-Phase 3: デザイン仕様（任意）
-  ├── UI/UXコンセプト
-  ├── ビジュアルデザイン
-  └── レビュー → あなたの承認
-
-Phase 4: プロトタイプ開発指示書
-  ├── 包括的なプロンプト生成
-  ├── Genspark/v0向けに最適化
-  └── レビュー → あなたの承認
-
-完成 → 提案スライド作成（オプション）
+I want to create a business plan for an online cooking class platform
 ```
 
-各フェーズ完了時にあなたの承認を求め、レビュー・改善を経て次へ進みます。
-
-### Cursorコマンド（段階的に進めたい方向け）
-
-特定のフェーズから開始したい、または自分でコントロールしたい場合は以下のコマンドを使用：
-
-- `/planning-workflow` - 包括的な事業計画ワークフロー（自動）
-- `/business-plan` - 事業計画書のみ作成
-- `/define-requirements` - PRDのみ作成
-- `/generate-prompts` - プロトタイプ開発指示書のみ作成
-- `/design-spec` - デザイン仕様書のみ作成
-- `/review-document` - 作成済みドキュメントのレビュー
-- `/process-session` - 議事録の整理と意思決定の抽出・記録
-- `/prepare-proposal` - 提案スライドの作成（Marp形式）
-
-## 主な機能
-
-### 1. 議事録・メモから事業計画を作成
-
-既存の議事録やメモ書きをもとに、構造化された事業計画書を作成：
+The AI automatically runs through this workflow:
 
 ```
-この議事録から事業計画を作成して
+Phase 1: Business Plan
+  ├── Reference past decisions (after first use)
+  ├── Simple guided questions
+  ├── Market research (live web data)
+  ├── Competitive analysis
+  ├── Business model design
+  └── Review → Your approval
+
+Phase 2: PRD
+  ├── MVP scope definition
+  ├── Feature priorities (MoSCoW)
+  ├── User stories
+  └── Review → Your approval
+
+Phase 3: Design Spec (optional)
+  ├── UI/UX concept
+  ├── Visual design
+  └── Review → Your approval
+
+Phase 4: Prototype Spec
+  ├── Generate comprehensive prompt
+  ├── Formatted for tools like Genspark/v0
+  └── Review → Your approval
+
+Done → Pitch deck (optional)
 ```
 
-### 2. 生成した事業計画書のレビューと改善
+At each phase, you review and approve before moving on.
 
-作成した事業計画書を以下の観点でAIがレビュー：
+### Slash Commands (For More Control)
 
-- 市場調査の妥当性検証（実際にWebで市場データを調査）
-- 競合分析の網羅性チェック
-- ビジネスモデルの実現可能性評価
-- 改善提案の提示
+If you want to start at a specific phase or work step by step:
 
-```
-この事業計画書をレビューして
-```
+- `/planning-workflow` - Full business planning workflow
+- `/business-plan` - Business plan only
+- `/define-requirements` - PRD only
+- `/generate-prompts` - Prototype spec only
+- `/design-spec` - Design spec only
+- `/review-document` - Review existing documents
+- `/process-session` - Process meeting notes and extract decisions
+- `/prepare-proposal` - Create pitch deck
 
-### 3. プロトタイプ開発指示書とは
+## Key Features
 
-事業計画とPRDを踏まえた、AI開発ツール向けの詳細な仕様書です：
+### 1. Turn Meeting Notes Into Business Plans
 
-- プロダクト概要とターゲットユーザー
-- MVP範囲と優先順位付けされた機能
-- 主要なユーザーフロー
-- 機能仕様の詳細
-- デザイン要件（ある場合）
-- 技術的推奨事項
-
-このプロンプトをGenspark DeveloperやV0などのAI開発ツールに渡すことで、事業計画に基づいた一貫性のあるプロトタイプを開発できます。
-
-### 4. 意思決定の蓄積と学習サイクル
-
-このフレームワークの最大の特徴は、**使えば使うほど事業計画の質が向上する仕組み**です。
-
-**仕組み**:
-1. 会議の議事録から意思決定を自動抽出・記録
-2. **新しい事業計画を作成する際、過去の意思決定を自動的に参照**
-   - 何が上手くいったか
-   - 何が失敗したか
-   - どの仮定が間違っていたか
-   - どのようなリスクが顕在化したか
-3. 過去の知見をもとに、新しい計画の精度を向上
-
-会議メモを共有して「この議事録を整理して」と依頼すると、AIが意思決定を抽出・記録します。
-
-### 5. 提案スライドの作成
-
-事業計画、PRD、プロトタイプ開発指示書をもとに、Marp形式のプレゼンテーション資料を自動生成：
+Got existing notes or transcripts? Turn them into structured plans:
 
 ```
-提案スライドを作成して
+Create a business plan from these meeting notes
 ```
 
-生成されたMarkdownファイルは、MarpでPDF/PPTX/HTMLに変換できます。
+### 2. AI-Powered Plan Review
 
-## 成果物の保存先
+The AI reviews your business plans for:
 
-すべてのドキュメントは `projects/[プロジェクト名]/` 配下に保存されます：
+- Market information accuracy (checking real web data)
+- Competitive analysis completeness
+- Business model feasibility
+- Improvement suggestions
+
+```
+Review this business plan
+```
+
+### 3. Prototype Specs Explained
+
+These specs include the essentials needed to build a prototype:
+
+- A clear product summary and target users
+- MVP feature list with priorities
+- Key user flows
+- Design and technical notes (if available)
+
+Hand this to Genspark Developer, v0, or similar tools to build prototypes that align with your business plan.
+
+### 4. Learning From Decisions
+
+A key feature of this tool is that it keeps track of your decisions. Every time you process meeting notes, the AI extracts and records what worked, what failed, which assumptions turned out to be wrong, and which risks actually occurred. When you create your next business plan, these insights are automatically pulled in to provide better guidance. Over time, the recommendations become more tailored to your context.
+
+Share your meeting notes and ask "organize these notes" to have AI extract and record decisions.
+
+### 5. Pitch Deck Generation
+
+Auto-generate presentations from your business plan, PRD, and prototype spec. The output is in Marp format—a simple markdown-based tool that lets you export to PDF, PowerPoint, or HTML.
+
+```
+Create a pitch deck
+```
+
+## Where Files Are Saved
+
+All files are saved automatically in a clear folder structure. You don't need to manage files manually.
 
 ```
 projects/your-project/
-├── 01-planning/         # 事業計画書、市場調査
-├── 02-requirements/     # PRD（プロダクト要求仕様書）
-├── 03-design/          # デザイン仕様書（作成した場合）
-├── 04-prompts/         # プロトタイプ開発指示書
-├── 05-sessions/        # 議事録・セッションメモ
-├── 06-decisions/       # 意思決定記録（過去の計画に自動活用）
-└── 07-artifacts/       # 提案スライド等の成果物
+├── 01-planning/         # Business plans, market research
+├── 02-requirements/     # PRD
+├── 03-design/          # Design specs (if created)
+├── 04-prompts/         # Prototype specs
+├── 05-sessions/        # Meeting notes
+├── 06-decisions/       # Decision records (auto-used in future plans)
+└── 07-artifacts/       # Pitch decks and other outputs
 ```
 
-## 活用されるビジネスフレームワーク
+## Built-in Business Frameworks
 
-このツールには実績のあるビジネス手法が組み込まれており、AIが自動的に適用します：
+The tool automatically applies proven methodologies:
 
-- **ビジネスモデルキャンバス**: 事業構造の可視化
-- **バリュープロポジションキャンバス**: 顧客課題と解決策の整理
-- **市場分析**: TAM/SAM/SOM推定、競合分析、ペルソナ作成
-- **MVP定義**: リーンスタートアップ手法、MoSCoW優先順位付け
-- **プロンプトエンジニアリング**: AI開発ツール向け最適化
-- **デザイン思考**: ユーザー中心のUI/UX設計
+- **Business Model Canvas**: A one-page template to map out how your business creates and delivers value
+- **Value Proposition Canvas**: Helps you match what you're offering to what customers actually need
+- **Market Analysis**: Estimates your market size (total, serviceable, and realistic target), analyzes competitors, and builds customer personas
+- **MVP Definition**: Uses lean startup thinking to identify the smallest version of your product worth building, with MoSCoW method—a way to rank features by Must have, Should have, Could have, and Won't have
+- **Prompt Engineering**: Writing clear instructions for AI tools so they produce the results you want
+- **Design Thinking**: A human-centered approach to designing products that starts with understanding user needs
 
-## よくある質問
+## Customizing the Output Language
 
-**Q: 使用できるツールは？**
-A: Cursor（推奨）、Windsurf、その他AGENTS.md規格対応ツール（Aider、Zedなど）。
+By default, the AI responds in whatever language you use. If you want to guarantee all outputs are in a specific language, you can add a rule to `AGENTS.md`.
 
-**Q: 生成された事業計画の精度は？**
-A: AIは市場調査と検証を実施しますが、最終的な判断は必ずご自身で行ってください。ただし、このツールを繰り返し使うことで過去の意思決定が蓄積され、計画の質は向上していきます。
+**How to do it:**
 
-**Q: カスタマイズは可能？**
-A: `.agents/` 配下のファイルを編集することで、独自のビジネスフレームワークやテンプレートを追加できます。
+1. Open `AGENTS.md` in the project folder
+2. Find the section called `## Core Principles`
+3. Add the following text right after `## Core Principles` (before `### Plan Injection`):
 
-**Q: 料金は？**
-A: フレームワーク自体は無料（MITライセンス）です。CursorなどのAIツールは別途料金が発生する場合があります。
+```markdown
+### Language Strategy [MANDATORY]
+**User-facing content in Japanese:**
+- **User interaction** (conversation, responses, questions): Communicate in Japanese
+- **Deliverables** (business plans, requirements, prompts, documentation): Write in Japanese
+```
 
-## ライセンス
+**For other languages:** Replace "Japanese" with your language. For example, if you want Spanish output:
 
-MIT License - 商用利用を含め自由に使用できます。
+```markdown
+### Language Strategy [MANDATORY]
+**User-facing content in Spanish:**
+- **User interaction** (conversation, responses, questions): Communicate in Spanish
+- **Deliverables** (business plans, requirements, prompts, documentation): Write in Spanish
+```
+
+## FAQ
+
+**Q: Which tools work with this?**
+A: Cursor (recommended), Windsurf, and other tools that support the [AGENTS.md standard](https://agents.md) (Aider, Zed, etc.).
+
+**Q: How accurate are the generated plans?**
+A: The AI does market research and validation, but always apply your own judgment. That said, plans improve over time as your decision history builds up.
+
+**Q: Can I customize it?**
+A: Yes. Edit files in `.agents/` to add your own frameworks or templates.
+
+**Q: Is it free?**
+A: The framework is free (MIT License). AI tools like Cursor may have their own costs.
+
+## License
+
+MIT License - free to use, including commercially.
 
 ---
 
-**事業計画と意思決定を体系的に蓄積し、次の計画に活かす。**
+**Build better business plans by learning from every decision.**
 
-[AGENTS.md規格](https://agents.md)に基づいて構築されており、複数のAI開発ツールで動作します。
+Built on [AGENTS.md](https://agents.md) and works with multiple AI development tools.
 
 ```bash
 git clone https://github.com/shinpr/ai-business-planner.git
