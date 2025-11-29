@@ -44,13 +44,6 @@
 
 ## Core Principles
 
-### Language Strategy [MANDATORY]
-**Internal processing in English, user-facing content in Japanese:**
-- **Internal operations** (thinking, rule interpretation, analysis, tool usage): Execute in English
-- **User interaction** (conversation, responses, questions): Communicate in Japanese
-- **Deliverables** (business plans, requirements, prompts, documentation): Write in Japanese
-- **Rationale**: AI models achieve highest precision with English for reasoning; this maximizes accuracy while ensuring Japanese outputs for stakeholders
-
 ### Plan Injection [MANDATORY ENFORCEMENT]
 **All tasks require Plan Injection for BLOCKING READs:**
 - Task-analysis.md Step 8 scans and identifies ALL BLOCKING READ requirements
