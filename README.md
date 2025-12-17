@@ -13,6 +13,23 @@ Talk with AI to generate market research, business plans, product requirements (
 5. **Pitch deck** → Presentation slides (Marp format, exportable to PDF/PowerPoint)
 6. **Decision tracking** → Extracts insights from meetings to improve your next plan
 
+## Why This Approach
+
+Traditional planning: perfect the plan → build → get feedback.
+
+With AI tools, building prototypes takes hours instead of months.
+
+**Rough hypothesis → Prototype → User feedback → Refine the plan**
+
+This tool doesn't aim to produce "perfect" business plans.
+Instead, it helps you:
+- Organize testable hypotheses quickly
+- Make clear what still needs validation
+- Identify critical assumptions to verify first
+- Get to user feedback faster
+
+A plan with clear gaps isn't incomplete—it shows exactly what to test next.
+
 ## Who This Is For
 
 **Business professionals who use AI tools but aren't technical experts.**
