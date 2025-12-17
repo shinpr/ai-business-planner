@@ -9,26 +9,22 @@ Best practices for crafting effective prompts for AI-powered prototype generatio
 ### 1. Clarity and Specificity
 - Be explicit about what you want
 - Provide concrete examples
-- Avoid ambiguity
-- Define technical terms
+- Use unambiguous language
 
-### 2. Context First
-- Explain the product purpose
-- Describe target users
-- State core value proposition
-- Set the scene before details
+### 2. Context of Use
+- Target users: role, skill level, environment
+- Usage scenario: when, where, how often
+- Decisions users make with this UI
 
 ### 3. Structured Information
-- Use clear sections and headers
+- Clear sections and headers
 - Bullet points for lists
 - Numbered steps for flows
-- Hierarchical organization
 
-### 4. Completeness
-- Include all necessary information
-- Specify requirements fully
-- Address edge cases
-- Provide fallback behaviors
+### 4. Constraints and Preferences
+- Platform and device requirements
+- Visual style and tone
+- Layout approach and color semantics
 
 ## Prompt Structure Template
 
@@ -36,45 +32,36 @@ Best practices for crafting effective prompts for AI-powered prototype generatio
 
 ```markdown
 1. CONTEXT
-   - What the product does
-   - Who it's for
-   - Core value proposition
+   - Product purpose and value
+   - Target users (role, skill level)
+   - Usage scenario (when, where, frequency)
+   - Decisions users make with this UI
 
 2. SCOPE
-   - What to build (MVP features)
-   - What NOT to build (explicitly)
+   - MVP features to build
+   - Scope boundaries
 
 3. USER FLOWS
    - Step-by-step user journeys
-   - Expected interactions
-   - Success criteria
+   - Key interactions and responses
 
 4. FEATURES
-   - Detailed feature descriptions
-   - Acceptance criteria
-   - Priority indicators
+   - Feature descriptions with acceptance criteria
+   - Priority (Must/Should/Could)
 
-5. TECHNICAL SPECS (Prototype Context Only)
+5. TECHNICAL SPECS
    - Platform: Web/Mobile/Desktop
-   - Browser/device support
-   - Responsive requirements
-
-   DO NOT INCLUDE for prototypes:
-   - Backend tech stack
-   - Database specifications
-   - API architectures
-   - Server configurations
+   - Responsive breakpoints
+   - Mock data approach (LocalStorage, hardcoded)
 
 6. DESIGN GUIDANCE
-   - UI/UX preferences
-   - Visual style
-   - Brand elements
-   - Responsive requirements
+   - Visual style and tone
+   - Color semantics (e.g., red=error, green=success)
+   - Layout approach
 
 7. SUCCESS CRITERIA
    - What "done" looks like
-   - Key functionality to test
-   - Expected outcomes
+   - Key functionality to verify
 ```
 
 ## Platform-Specific Best Practices
@@ -82,92 +69,82 @@ Best practices for crafting effective prompts for AI-powered prototype generatio
 ### Genspark Developer
 
 **Strengths:**
+- Interactive HTML/CSS/JS prototypes
 - Step-by-step implementation
-- Full-stack applications
-- Complex features
+- Component-based UI generation
 - Iterative refinement
 
 **Prompt Tips:**
-- Break down into clear phases
-- Specify tech stack preferences
-- Provide detailed user flows
-- Include data models if complex
-- Request specific technologies
+- Focus on visual prototype scope
+- Provide mock data examples
+- Describe component interactions
+- Specify responsive requirements
 
 **Example Pattern:**
 ```
-Build a [type] application that allows users to [core action].
+Build an interactive prototype for [product].
 
-Tech Stack: [Specify technologies]
+SCOPE: Visual prototype with mock data
 
 Core Features:
-1. [Feature 1] - Users should be able to [action]
-2. [Feature 2] - The system should [behavior]
+1. [Feature 1] - [user interaction description]
+2. [Feature 2] - [visual behavior description]
 
-Step-by-step implementation:
-Phase 1: [Basic structure]
-Phase 2: [Core functionality]
-Phase 3: [Enhancements]
+Mock Data: Use LocalStorage with sample JSON
+Interactions: [Click, hover, form states]
 ```
 
 ### v0 (Vercel)
 
 **Strengths:**
 - React/Next.js components
-- Modern UI/UX
-- Responsive design
+- Tailwind CSS integration
+- Modern UI patterns
 - Quick iterations
 
 **Prompt Tips:**
-- Emphasize visual design
-- Describe component structure
-- Specify Tailwind classes if needed
-- Focus on user experience
-- Request specific UI patterns
+- Include user context (who, when, what decision)
+- Describe component hierarchy
+- Specify color semantics
+- Define responsive behavior
 
 **Example Pattern:**
 ```
-Create a [component/page] for [purpose].
+Build [component] used by [user role] in [scenario] to [decision/action].
 
-Design: [Modern/minimal/etc.]
-Layout: [Describe layout]
-Components needed:
-- [Component 1]: [Description]
-- [Component 2]: [Description]
+Design: [style] with [color semantics]
+Layout: [responsive approach]
+Components:
+- [Component]: [behavior description]
 
-User interaction:
-When user [action], the interface should [response]
+Interactions: [state changes on user actions]
 ```
 
 ### General AI Tools
 
 **Universal Prompt Pattern:**
 ```
-I need to build [product description].
+Build [product] for [user role] to [goal].
 
-PURPOSE: [Why this exists]
+CONTEXT:
+- Users: [role, skill level]
+- Scenario: [when, where they use it]
+- Decision: [what they decide with this UI]
 
-TARGET USERS: [Who will use it]
-
-CORE FUNCTIONALITY:
-1. [Feature 1 with detailed description]
-2. [Feature 2 with detailed description]
+FEATURES:
+1. [Feature]: [behavior]
+2. [Feature]: [behavior]
 
 USER FLOW:
-1. User [action]
-2. System [response]
-3. User [next action]
+1. User [action] → System [response]
+2. User [action] → System [response]
 
-TECHNICAL REQUIREMENTS:
-- Platform: [web/mobile/etc]
-- [Other tech requirements]
+CONSTRAINTS:
+- Platform: [web/mobile]
+- Style: [visual tone]
+- Colors: [semantic meaning]
 
-DESIGN REQUIREMENTS:
-- Style: [Description]
-- Key UI elements: [List]
-
-SUCCESS CRITERIA:
-- [What working looks like]
+SUCCESS: [what working looks like]
 ```
 
 ## Effective Prompt Techniques
@@ -216,16 +193,12 @@ Add to Cart button:
 
 ## Quality Checklist
 
-□ Context clearly explained
-□ Scope explicitly defined (in and out)
-□ User flows step-by-step
-□ Features detailed with examples
-□ Technical requirements specified
-□ Design guidance provided
-□ Edge cases addressed
-□ Success criteria clear
-□ Platform-specific optimizations applied
-□ No ambiguous language
+□ Context includes user role, scenario, and decisions
+□ Scope boundaries clearly defined
+□ User flows are step-by-step
+□ Features have acceptance criteria
+□ Design guidance with color semantics
+□ Success criteria are verifiable
 
 ## Common Pitfalls
 
