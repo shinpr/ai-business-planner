@@ -30,6 +30,20 @@ Instead, it helps you:
 
 A plan with clear gaps isn't incomplete—it shows exactly what to test next.
 
+## See a Real Example
+
+Want to see what this workflow actually produces?
+
+**[AI Business Planner Demo](https://github.com/shinpr/ai-business-planner-demo)**
+
+This demo shows a complete example from start to finish:
+- A business plan focused on validation, not financial projections
+- An MVP definition that makes assumptions and unknowns visible
+- A prototype spec generated from the plan
+- A pitch deck built from the same source
+
+If you'd rather see outputs before reading docs, start here.
+
 ## Who This Is For
 
 **Business professionals who use AI tools but aren't technical experts.**
