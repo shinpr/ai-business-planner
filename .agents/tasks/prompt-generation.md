@@ -42,17 +42,15 @@ Generate comprehensive prompts for AI-powered prototype generation tools (Genspa
 - Visual design (colors, fonts, spacing)
 - Mock data examples (simple JSON structures)
 
-**EXCLUDE from prototype prompts:**
-- Backend implementation details
-- Database schemas (beyond simple examples)
-- API endpoint specifications
-- Authentication/authorization systems
-- Third-party API integration details
-- Deployment and infrastructure
-- Security implementations
-- Performance optimization strategies
+**Prototype Alternatives** (server/database requirements → frontend equivalents):
+- Backend implementation → Use LocalStorage or hardcoded arrays
+- Database schemas → Define simple JSON structures for mock data
+- API endpoints → Use static mock responses
+- Authentication → Use mock login state (boolean flag)
+- Third-party APIs → Use placeholder data representing expected responses
+- Infrastructure/deployment → Focus on client-side behavior only
 
-**Rule**: If it requires a server or database to work, exclude it from prototype scope.
+**Decision Rule**: Requires server/database? → Replace with frontend mock equivalent above.
 
 ### 2.6. Output Format Principle [CRITICAL]
 
@@ -69,14 +67,12 @@ Generate TWO distinct files per platform:
 - Specifications, requirements, and technical details
 - Examples and mock data that the AI tool should use
 
-**Prompt File Content (what to EXCLUDE)**:
-- Meta-information explaining how to use the prompt
-- Descriptions or introductions about the platform itself
-- Step-by-step instructions for operating the AI tool
-- Suggested workflows after prompt execution
-- Best practices for using the platform
-- Troubleshooting guides
-- Editorial commentary about the prompt
+**Human Guidance Content → Move to guide file**:
+- Platform introductions/descriptions → `[platform]-guide.md`
+- Usage instructions for the AI tool → `[platform]-guide.md`
+- Post-execution workflows → `[platform]-guide.md`
+- Best practices/troubleshooting → `[platform]-guide.md`
+- Editorial commentary → `[platform]-guide.md`
 
 **Guide File Content (what to INCLUDE)**:
 - Platform introduction and capabilities
@@ -152,85 +148,29 @@ Pure prompt specifications → `v0-prompt.md`
 During execution, ask user which platform(s) to target and generate optimized prompts accordingly.
 
 ### General Prototype Guidelines (All Platforms)
-- Focus on UI/UX, not backend implementation
-- Use mock data (LocalStorage, hardcoded arrays)
-- Describe visual behavior, not backend logic
-- Keep scope to prototype limitations (see Section 2.5)
+- Focus on UI/UX with mock data
+- Apply principles from `.agents/rules/business/prompt-engineering.md`
 
 ---
 
 ### For Genspark Developer
 **Credit Awareness:**
 - Free tier: ~200 credits/day
-- Large prompts (>1000 lines) may exhaust credits mid-generation
-- Recommendation: Keep prompts focused and under 1000 lines
+- Keep prompts under 1000 lines
 
-**Strengths:**
-- Interactive HTML/CSS/JS prototypes
-- Component-based UI
-- Mock data handling
-- Responsive design
-
-**Prompt Optimization:**
-- Emphasize visual prototype scope
-- Provide clear mock data examples
-- Specify component interactions explicitly
-- Exclude backend/database implementation
-- Use step-by-step user flow descriptions
-
-**Example Pattern:**
-```
-Create an interactive HTML/CSS/JavaScript prototype for [product].
-
-SCOPE: Visual prototype for stakeholder approval (NO backend implementation)
-
-SCREENS: [List screens with layout descriptions]
-USER FLOWS: [Step-by-step interactions]
-DESIGN SYSTEM: [Colors, fonts, spacing]
-MOCK DATA: Use LocalStorage with example JSON
-INTERACTIONS: [Click, hover, form validation - frontend only]
-
-EXCLUDE: Backend, database, APIs, authentication
-```
+**Apply:** Genspark section in `prompt-engineering.md`
 
 ---
 
 ### For v0 (Vercel)
 
-**Strengths:**
-- React/Next.js components
-- Modern UI/UX patterns
-- Tailwind CSS integration
-- Component composition
-
-**Prompt Optimization:**
-- Emphasize component structure
-- Specify Tailwind classes for styling
-- Focus on React patterns (hooks, state)
-- Mock data with useState/hardcoded
-- Exclude API calls and backend logic
-
-**Example Pattern:**
-```
-Create React components for [feature].
-
-DESIGN: Modern, responsive using Tailwind CSS
-COMPONENTS: [List with descriptions]
-STATE MANAGEMENT: useState for mock data (no backend)
-USER INTERACTIONS: [Describe React event handlers]
-
-EXCLUDE: API integration, backend, database
-```
+**Apply:** v0 section in `prompt-engineering.md`
 
 ---
 
 ### For Other AI Tools
 
-**Generic optimization:**
-- Clear, technology-agnostic descriptions
-- Focus on functional requirements
-- Comprehensive feature list
-- Visual design specifications
+**Apply:** General AI Tools section in `prompt-engineering.md`
 
 ## Execution Process
 
@@ -410,23 +350,20 @@ Before writing each file, apply the Decision Test from Section 2.6:
 - [Criterion 2]
 [...]
 
-## Out of Scope
-- [What NOT to include]
+## Scope Boundaries
+- [Explicit limits of this prototype]
 ```
 
 ## Completion Conditions
 
-□ Prompt files contain ONLY machine-executable content (passed Decision Test)
-□ Guide files contain ONLY human-readable documentation
+□ Prompt files contain only machine-executable content (passed Decision Test)
+□ Guide files contain only human-readable documentation
 □ Platform-specific prompts generated per platform choice
 □ All MVP features included in prompt files
 □ User flows clearly described in prompts
 □ Design requirements integrated (if applicable)
-□ Technical preferences specified in prompts
 □ Success criteria defined in prompts
-□ Prompts tested for clarity and completeness
-□ Prompts actionable for prototype generation
-□ No meta-information or usage instructions in prompt files
+□ Prompts ready for direct copy-paste into AI tools
 
 ## Common Pitfalls to Avoid
 
@@ -443,26 +380,17 @@ Before writing each file, apply the Decision Test from Section 2.6:
 ## Quality Gates
 
 Before completion:
-- [ ] **CRITICAL**: All prompt files pass Decision Test (no meta-content)
+- [ ] **CRITICAL**: All prompt files pass Decision Test (executable content only)
 - [ ] **CRITICAL**: Guide files separated from prompt files
-- [ ] Platform-specific prompt files optimized per platform
-- [ ] Platform-specific guide files created with usage documentation
+- [ ] Platform-specific prompts optimized per platform
 - [ ] All requirements reflected in prompt files
-- [ ] Design elements integrated in prompts (if applicable)
 - [ ] User flows clearly described in prompts
 - [ ] Success criteria explicit in prompts
-- [ ] Prompts tested for clarity and copy-pasteability
-- [ ] Platform-specific best practices applied
-- [ ] No "how to use" content in prompt files
-- [ ] No "about the platform" content in prompt files
-- [ ] No "recommended workflow" content in prompt files
+- [ ] Platform-specific best practices from `prompt-engineering.md` applied
 
 ## Exit Conditions
 
-□ All prompt files exist and contain ONLY machine-executable content
-□ All guide files exist and contain ONLY human-readable documentation
-□ All completion conditions satisfied
-□ All quality gates passed (especially Decision Test)
+□ All prompt files pass Decision Test
+□ All guide files created with usage documentation
+□ All quality gates passed
 □ User approval obtained (STOP POINT in workflow)
-□ Prompts ready for direct copy-paste into AI tools
-□ Guides ready for human reference
