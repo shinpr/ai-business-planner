@@ -26,6 +26,36 @@ Best practices for crafting effective prompts for AI-powered prototype generatio
 - Visual style and tone
 - Layout approach and color semantics
 
+### 5. Atmosphere Specification
+
+When design specification exists, include concrete visual instructions derived from atmosphere keywords.
+
+**Required elements:**
+- Atmosphere keywords
+- Color palette with hex values
+- Border-radius, shadow, spacing direction
+- Override instructions for default UI library styles
+- Elements to avoid
+
+**Platform-specific overrides:**
+
+For v0 (shadcn/ui based):
+```
+Override shadcn/ui defaults:
+- Colors: [custom palette replacing slate/gray]
+- Border-radius: [value]
+- Shadows: [style]
+- Spacing: [direction]
+```
+
+For Genspark:
+```
+Design customization:
+- Color palette: [hex values]
+- Visual atmosphere: [keywords]
+- Avoid: [specific elements]
+```
+
 ## Prompt Structure Template
 
 ### Essential Sections
@@ -79,6 +109,8 @@ Best practices for crafting effective prompts for AI-powered prototype generatio
 - Provide mock data examples
 - Describe component interactions
 - Specify responsive requirements
+- Include atmosphere keywords and color palette
+- Specify overrides from default styling
 
 **Example Pattern:**
 ```
@@ -112,10 +144,14 @@ Interactions: [Click, hover, form states]
 ```
 Build [component] used by [user role] in [scenario] to [decision/action].
 
-Design: [style] with [color semantics]
-Layout: [responsive approach]
+Atmosphere: [keywords]
+Color palette: [hex values]
+
+Override shadcn/ui defaults:
+- [specific overrides]
+
 Components:
-- [Component]: [behavior description]
+- [Component]: [behavior]
 
 Interactions: [state changes on user actions]
 ```

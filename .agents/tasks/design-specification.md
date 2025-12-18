@@ -32,6 +32,16 @@ Define design requirements and specifications for prototype, including UI/UX con
 - User flow considerations
 - Usability goals
 
+### 2.5 Atmosphere Translation
+
+Translate abstract brand/industry attributes into concrete design elements.
+
+**Required outputs:**
+- 3-5 atmosphere keywords from business plan
+- Design direction for: colors, border-radius, shadows, spacing, typography
+- Reference materials (URLs, images) if available
+- Elements to avoid
+
 ### 3. Visual Design
 - Color palette
 - Typography
@@ -96,6 +106,11 @@ Define design requirements and specifications for prototype, including UI/UX con
 - [ ] Brand personality (if not in business plan)
 - [ ] Design references or inspiration (if any)?
 - [ ] Specific design constraints or preferences?
+
+**Atmosphere** (SHOULD HAVE):
+- [ ] Atmosphere keywords (3-5 adjectives describing brand/industry feel)
+- [ ] Design references or inspiration
+- [ ] Elements to avoid
 
 **Visual Elements** (SHOULD HAVE):
 - [ ] Color preferences or brand colors?
