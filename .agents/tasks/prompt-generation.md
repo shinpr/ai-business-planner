@@ -124,12 +124,17 @@ Pure prompt specifications → `v0-prompt.md`
 - Data requirements
 - Integration points (if any)
 
-### 5. Design Requirements (if applicable)
-- UI/UX guidelines
-- Visual design preferences
-- Brand elements
-- Accessibility requirements
-- Responsive design needs
+### 5. Design Requirements
+
+When design specification exists:
+- Atmosphere keywords and translated design elements
+- Color palette with hex values
+- Override instructions for UI library defaults
+- Elements to avoid
+
+When design specification does not exist:
+- Extract industry characteristics from business plan
+- Define minimal atmosphere direction
 
 ### 6. Technical Preferences
 - Platform (web, mobile, PWA, etc.)
@@ -237,11 +242,16 @@ Generate platform-specific prompt using guidelines from Section "Platform-Specif
 - Understand user flows
 - Note constraints and preferences
 
-### Step 2: Design Integration (if applicable)
-- Review design requirements
-- Extract key design elements
-- Identify UI/UX patterns
-- Note brand guidelines
+### Step 2: Design Integration
+
+If design specification exists:
+- Extract atmosphere keywords and design translations
+- Confirm color palette with hex values
+- Identify required UI library overrides
+
+If design specification does not exist:
+- Extract industry characteristics from business plan
+- Set minimal atmosphere keywords
 
 ### Step 3: Generic Prompt Creation
 - Write comprehensive, platform-agnostic prompt
@@ -334,11 +344,23 @@ Before writing each file, apply the Decision Test from Section 2.6:
 - [Requirement 2]
 [...]
 
-## Design Requirements (if applicable)
-- UI/UX: [guidelines]
-- Visual style: [preferences]
-- Brand: [elements]
-- Responsive: [requirements]
+## Design Requirements
+
+### Atmosphere
+- Keywords: [3-5 adjectives]
+- Avoid: [elements]
+
+### Visual Specifications
+- Colors: Primary #[hex], Secondary #[hex], Accent #[hex]
+- Border-radius: [direction]
+- Shadows: [direction]
+- Spacing: [direction]
+
+### UI Library Overrides
+[Platform-specific override instructions]
+
+### Responsive
+- [requirements]
 
 ## Technical Preferences
 - Platform: [web/mobile/etc]
@@ -362,6 +384,8 @@ Before writing each file, apply the Decision Test from Section 2.6:
 □ All MVP features included in prompt files
 □ User flows clearly described in prompts
 □ Design requirements integrated (if applicable)
+□ Atmosphere reflected as concrete design elements
+□ UI library override instructions included (for v0/Genspark)
 □ Success criteria defined in prompts
 □ Prompts ready for direct copy-paste into AI tools
 
