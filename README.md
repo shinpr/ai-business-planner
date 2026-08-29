@@ -1,259 +1,175 @@
 # AI Business Planner
 
-**From idea to proposal—create complete business plans through a guided workflow.**
+Turn an idea or meeting notes into a business plan that shows what is known, what is assumed, and what to validate next.
 
-Talk with AI to generate market research, business plans, product requirements (PRD), prototype specs, and pitch decks. Your previous plans help improve the recommendations over time.
+AI Business Planner is a set of instructions for AI agents such as Cursor. It helps non-technical business users create decision-useful plans, MVP requirements, prototype-generation prompts, and proposals while keeping the documents connected.
 
-## What This Tool Does
+It can run one task at a time or guide an end-to-end workflow. Each request creates the selected output; the end-to-end sequence runs when you request it.
 
-1. **Business idea or meeting notes** → AI guides you through a short Q&A to clarify your concept
-2. **Business plan** → Market research, competitive analysis, business model design (brings in relevant insights from your previous projects)
-3. **PRD** → MVP scope, feature priorities (MoSCoW), user stories
-4. **Prototype spec** → Instructions formatted for tools like Genspark or v0
-5. **Pitch deck** → Presentation slides (Marp format, exportable to PDF/PowerPoint)
-6. **Decision tracking** → Extracts insights from meetings to improve your next plan
+## See the Output First
 
-## Why This Approach
+The [AI Business Planner Demo](https://github.com/shinpr/ai-business-planner-demo) shows an example from business plan through prototype prompt and pitch deck.
 
-Traditional planning: perfect the plan → build → get feedback.
+Use it to see:
 
-With AI tools, building prototypes takes hours instead of months.
+- how assumptions and missing evidence are represented;
+- how an MVP scope traces back to the business idea;
+- how the requirements become a prototype-generation prompt;
+- how the same source material supports a proposal.
 
-**Rough hypothesis → Prototype → User feedback → Refine the plan**
+## First Run
 
-This tool doesn't aim to produce "perfect" business plans.
-Instead, it helps you:
-- Organize testable hypotheses quickly
-- Make clear what still needs validation
-- Identify critical assumptions to verify first
-- Get to user feedback faster
+### 1. Install an AI editor
 
-A plan with clear gaps isn't incomplete—it shows exactly what to test next.
+[Cursor](https://cursor.com/download) is the recommended option because this repository includes Cursor slash commands. Other agents that read [`AGENTS.md`](https://agents.md/) can use the natural-language tasks.
 
-## See a Real Example
+### 2. Download this repository
 
-Want to see what this workflow actually produces?
-
-**[AI Business Planner Demo](https://github.com/shinpr/ai-business-planner-demo)**
-
-This demo shows a complete example from start to finish:
-- A business plan focused on validation, not financial projections
-- An MVP definition that makes assumptions and unknowns visible
-- A prototype spec generated from the plan
-- A pitch deck built from the same source
-
-If you'd rather see outputs before reading docs, start here.
-
-## Who This Is For
-
-**Business professionals who use AI tools but aren't technical experts.**
-
-- Business development managers launching new initiatives
-- Startup founders and product managers
-- Leaders looking to improve their planning process
-- Anyone who wants to systematically capture and learn from decisions
-
-## Setup
-
-### What You Need
-
-- **Cursor** (recommended) or **Windsurf**
-  - Cursor: https://cursor.sh/ (free plan available)
-  - Windsurf: https://codeium.com/windsurf (free)
-
-### Installation
-
-**Option 1: Using Git**
+If you use Git:
 
 ```bash
 git clone https://github.com/shinpr/ai-business-planner.git
 ```
 
-**Option 2: Download ZIP** (if you don't have Git)
+If you do not use Git:
 
-Go to https://github.com/shinpr/ai-business-planner, click the green "Code" button, then "Download ZIP". Unzip the file after downloading.
+1. Open the [repository page](https://github.com/shinpr/ai-business-planner).
+2. Select **Code → Download ZIP**.
+3. Extract the downloaded ZIP file.
 
-Then open the `ai-business-planner` folder in Cursor or Windsurf.
+### 3. Open the folder
 
-## How to Use
+Open the `ai-business-planner` folder in Cursor, then open Agent chat.
 
-### Automatic Workflow (Recommended)
+### 4. Describe the result you need
 
-In Cursor's Composer or Windsurf, just ask:
+For example:
 
-```
-I want to create a business plan for an online cooking class platform
-```
-
-The AI automatically runs through this workflow:
-
-```
-Phase 1: Business Plan
-  ├── Reference past decisions (after first use)
-  ├── Simple guided questions
-  ├── Market research (live web data)
-  ├── Competitive analysis
-  ├── Business model design
-  └── Review → Your approval
-
-Phase 2: PRD
-  ├── MVP scope definition
-  ├── Feature priorities (MoSCoW)
-  ├── User stories
-  └── Review → Your approval
-
-Phase 3: Design Spec (optional)
-  ├── UI/UX concept
-  ├── Visual design
-  └── Review → Your approval
-
-Phase 4: Prototype Spec
-  ├── Generate comprehensive prompt
-  ├── Formatted for tools like Genspark/v0
-  └── Review → Your approval
-
-Done → Pitch deck (optional)
+```text
+I want to evaluate an online cooking class business.
+Create a business plan, distinguish evidence from assumptions, and show me what to validate next.
 ```
 
-At each phase, you review and approve before moving on.
+You can write in your preferred language. To keep the conversation and saved documents in one language, state it in the same request:
 
-### Slash Commands (For More Control)
-
-If you want to start at a specific phase or work step by step:
-
-- `/planning-workflow` - Full business planning workflow
-- `/business-plan` - Business plan only
-- `/define-requirements` - PRD only
-- `/generate-prompts` - Prototype spec only
-- `/design-spec` - Design spec only
-- `/review-document` - Review existing documents
-- `/process-session` - Process meeting notes and extract decisions
-- `/prepare-proposal` - Create pitch deck
-
-## Key Features
-
-### 1. Turn Meeting Notes Into Business Plans
-
-Got existing notes or transcripts? Turn them into structured plans:
-
-```
-Create a business plan from these meeting notes
+```text
+日本語で対話し、成果物も日本語で保存してください。
 ```
 
-### 2. AI-Powered Plan Review
+The agent reads the repository instructions, uses information already provided before asking questions, researches current claims when needed, and saves the requested document under `projects/`.
 
-The AI reviews your business plans for:
+## Common Starting Points
 
-- Market information accuracy (checking real web data)
-- Competitive analysis completeness
-- Business model feasibility
-- Improvement suggestions
+### Start from meeting notes
 
-```
-Review this business plan
+```text
+Create a reusable session summary from these meeting notes. Separate decisions, actions, insights, and open questions.
 ```
 
-### 3. Prototype Specs Explained
+### Review an existing plan
 
-These specs include the essentials needed to build a prototype:
-
-- A clear product summary and target users
-- MVP feature list with priorities
-- Key user flows
-- Design and technical notes (if available)
-
-Hand this to Genspark Developer, v0, or similar tools to build prototypes that align with your business plan.
-
-### 4. Learning From Decisions
-
-A key feature of this tool is that it keeps track of your decisions. Every time you process meeting notes, the AI extracts and records what worked, what failed, which assumptions turned out to be wrong, and which risks actually occurred. When you create your next business plan, these insights are automatically pulled in to provide better guidance. Over time, the recommendations become more tailored to your context.
-
-Share your meeting notes and ask "organize these notes" to have AI extract and record decisions.
-
-### 5. Pitch Deck Generation
-
-Auto-generate presentations from your business plan, PRD, and prototype spec. The output is in Marp format—a simple markdown-based tool that lets you export to PDF, PowerPoint, or HTML.
-
-```
-Create a pitch deck
+```text
+Review projects/my-project/01-planning/business-plan.md for the decision it needs to support. Show findings before changing the file.
 ```
 
-## Where Files Are Saved
+### Define an MVP
 
-All files are saved automatically in a clear folder structure. You don't need to manage files manually.
-
+```text
+Use the approved business plan in projects/my-project/01-planning/ to define the smallest MVP that can test its core hypothesis.
 ```
+
+### Create a prototype prompt
+
+```text
+Create a v0 prompt from the requirements in projects/my-project/02-requirements/. Match the implementation fidelity to the validation goal.
+```
+
+### Run the complete workflow
+
+```text
+Take this idea from business validation through an MVP definition and a prototype-generation prompt. Pause for my agreement when the business direction and MVP scope are ready.
+```
+
+The complete workflow is:
+
+```text
+Business direction
+    ↓ agreement
+MVP requirements
+    ↓ agreement
+Design direction, when it affects the prototype
+    ↓
+Prototype-generation prompt
+```
+
+Proposal preparation, formal decision records, and meeting summaries remain available when you request them.
+
+## Cursor Slash Commands
+
+Cursor users can start a task directly:
+
+| Command | Result |
+|---|---|
+| `/planning-workflow` | Business idea through prototype prompt |
+| `/business-plan` | Business plan and validation priorities |
+| `/define-requirements` | MVP requirements |
+| `/design-spec` | Design requirements |
+| `/generate-prompts` | Prototype-generation prompt |
+| `/review-document` | Review of an existing document |
+| `/process-session` | Meeting or transcript summary |
+| `/prepare-proposal` | Marp-compatible proposal deck |
+
+These commands are adapters to the same task definitions used by natural-language requests.
+
+## Where Documents Are Saved
+
+```text
 projects/your-project/
-├── 01-planning/         # Business plans, market research
-├── 02-requirements/     # PRD
-├── 03-design/          # Design specs (if created)
-├── 04-prompts/         # Prototype specs
-├── 05-sessions/        # Meeting notes
-├── 06-decisions/       # Decision records (auto-used in future plans)
-└── 07-artifacts/       # Pitch decks and other outputs
+├── 01-planning/       # Business plans and reusable market research
+├── 02-requirements/   # MVP requirements
+├── 03-design/         # Design requirements when needed
+├── 04-prompts/        # Prototype prompts and requested guides
+├── 05-sessions/       # Meeting and session records
+├── 06-decisions/      # Significant decision records
+└── 07-artifacts/      # Proposals and other outputs
 ```
 
-## Built-in Business Frameworks
+Git history is the default document history. Projects can keep separate dated versions when a handoff requires them.
 
-The tool automatically applies proven methodologies:
+## How the Planning Approach Works
 
-- **Business Model Canvas**: A one-page template to map out how your business creates and delivers value
-- **Value Proposition Canvas**: Helps you match what you're offering to what customers actually need
-- **Market Analysis**: Estimates your market size (total, serviceable, and realistic target), analyzes competitors, and builds customer personas
-- **MVP Definition**: Uses lean startup thinking to identify the smallest version of your product worth building, with MoSCoW method—a way to rank features by Must have, Should have, Could have, and Won't have
-- **Prompt Engineering**: Writing clear instructions for AI tools so they produce the results you want
-- **Design Thinking**: A human-centered approach to designing products that starts with understanding user needs
+The repository uses familiar business methods where they help a real decision:
 
-## Customizing the Output Language
+- Business Model Canvas for model dependencies and trade-offs;
+- Value Proposition Canvas for customer evidence and value hypotheses;
+- market analysis for current external evidence;
+- MoSCoW or RICE when prioritization needs a reviewable method;
+- design thinking when user or experience evidence affects the prototype;
+- decision frameworks matched to impact and reversibility.
 
-By default, the AI responds in whatever language you use. If you want to guarantee all outputs are in a specific language, you can add a rule to `AGENTS.md`.
+The sequence is:
 
-**How to do it:**
-
-1. Open `AGENTS.md` in the project folder
-2. Find the section called `## Core Principles`
-3. Add the following text right after `## Core Principles` (before `### Plan Injection`):
-
-```markdown
-### Language Strategy [MANDATORY]
-**User-facing content in Japanese:**
-- **User interaction** (conversation, responses, questions): Communicate in Japanese
-- **Deliverables** (business plans, requirements, prompts, documentation): Write in Japanese
+```text
+Hypothesis → Smallest credible test → Evidence → Decision
 ```
 
-**For other languages:** Replace "Japanese" with your language. For example, if you want Spanish output:
+Framework sections, research, documents, and follow-up work are included according to the requested outcome. Assumptions and unknowns remain visible so a polished document is not mistaken for validated evidence.
 
-```markdown
-### Language Strategy [MANDATORY]
-**User-facing content in Spanish:**
-- **User interaction** (conversation, responses, questions): Communicate in Spanish
-- **Deliverables** (business plans, requirements, prompts, documentation): Write in Spanish
-```
+## Scope and Limits
 
-## FAQ
+This repository provides agent instructions and document conventions. The selected AI editor or agent performs the file operations and web research, subject to its model, tools, permissions, and network access.
 
-**Q: Which tools work with this?**
-A: Cursor (recommended), Windsurf, and other tools that support the [AGENTS.md standard](https://agents.md) (Aider, Zed, etc.).
+Review important business, legal, financial, market, and regulatory claims before acting on them. Generated plans organize evidence and decisions; they do not replace accountable professional judgment.
 
-**Q: How accurate are the generated plans?**
-A: The AI does market research and validation, but always apply your own judgment. That said, plans improve over time as your decision history builds up.
+## Customization
 
-**Q: Can I customize it?**
-A: Yes. Edit files in `.agents/` to add your own frameworks or templates.
+- Edit `AGENTS.md` to change project-wide behavior.
+- Edit `.agents/tasks/` to change a task's process or output.
+- Edit `.agents/rules/` to change the business criteria used by tasks.
+- Edit `.cursor/commands/` to change Cursor slash-command adapters.
 
-**Q: Is it free?**
-A: The framework is free (MIT License). AI tools like Cursor may have their own costs.
+Keep project-specific evidence and decisions under `projects/` rather than turning one project's preference into a global rule.
 
 ## License
 
-MIT License - free to use, including commercially.
-
----
-
-**Build better business plans by learning from every decision.**
-
-Built on [AGENTS.md](https://agents.md) and works with multiple AI development tools.
-
-```bash
-git clone https://github.com/shinpr/ai-business-planner.git
-```
+[MIT License](LICENSE) — free to use, modify, and distribute, including commercially.
