@@ -52,6 +52,8 @@ Generate prompts for multiple platforms only when the user requests multiple out
 
 ## Prompt Content
 
+Use only the sections that carry instructions needed by the selected generation tool:
+
 1. **Outcome and Context** — product purpose, users, scenario, and value
 2. **Scope** — selected MVP behavior and exclusions
 3. **User Flows** — actions, system responses, and important states
@@ -63,7 +65,8 @@ Generate prompts for multiple platforms only when the user requests multiple out
 ## Completion Criteria
 
 - The prompt is ready to paste into the selected tool or use as a platform-independent handoff.
-- Every required instruction traces to the requirements, design, platform, or validation goal.
+- Every instruction and constraint traces to the requirements, design, relevant platform behavior, or validation goal and preserves valid choices outside that source.
+- The prompt describes the desired artifact and observable results directly; generic quality claims and model-directed coaching are translated into concrete artifact requirements.
 - The prompt and optional human guidance are separated by their consumer.
 - Implementation fidelity matches the prototype's validation goal.
 - Optional features, platforms, and production concerns appear in the prompt when the user selects them.
