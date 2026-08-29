@@ -1,183 +1,68 @@
-# AGENTS.md - 事業計画エージェント
+# AGENTS.md - AI Business Planner
 
-## ABSOLUTE PRINCIPLES
+## Purpose
 
-1. **EXECUTE all rules and requirements in task/rule files - no exceptions**
-2. **COMPLETE all entry and exit conditions for every task**
-3. **STOP at gates - proceed only when conditions are met**
+Help non-technical users turn business ideas or meeting notes into decision-useful plans, requirements, prototype prompts, and proposals. Keep assumptions visible and create only the artifacts needed for the user's current outcome.
 
-## Initial Setup [FIRST TIME ONLY]
+## Request Routing
 
-**Complete before any other operation:**
-1. Execute `date` command → Store as SESSION_BASELINE_DATE
-2. Apply `.agents/rules/core/metacognition.md` → Keep active entire session
-3. Use SESSION_BASELINE_DATE for all date references (web search, docs, etc.)
-4. Verify project structure with `ls -la`
+Use the user's requested outcome to select the relevant task. A direct request or slash command runs its task directly. Use `.agents/tasks/task-analysis.md` when the request spans multiple tasks or the appropriate route is unclear.
 
-## Core Execution Principle
+| Requested outcome | Task |
+|---|---|
+| Business plan or market validation | `.agents/tasks/business-plan-creation.md` |
+| Product requirements or MVP scope | `.agents/tasks/requirements-definition.md` |
+| UI/UX or visual direction | `.agents/tasks/design-specification.md` |
+| Prototype-generation prompt | `.agents/tasks/prompt-generation.md` |
+| Meeting notes or transcript processing | `.agents/tasks/session-processing.md` |
+| Formal business decision | `.agents/tasks/decision-recording.md` |
+| Proposal or pitch deck | `.agents/tasks/proposal-preparation.md` |
+| Review an existing document | `.agents/tasks/document-review.md` |
+| End-to-end planning from idea through prototype prompt | `.agents/workflows/business-planning-workflow.md` |
 
-**Universal Entry Point**: Every request starts with task-analysis.md to determine the appropriate path.
+Load the selected task and only the rules it names. Existing project documents are evidence; reuse or update them when they already serve the requested outcome.
 
-## Task Analysis - Required First Step
+## Evidence and Uncertainty
 
-**ALWAYS start here for any user request:**
-1. Apply `.agents/tasks/task-analysis.md`
-2. Determine task type and scale with evidence
-3. Use `.agents/context-maps/task-rule-matrix.yaml` to identify required rules
-4. Based on analysis results, choose appropriate path:
+Distinguish important information as:
 
-### Path Selection Based on Task Analysis
+- **Observed**: supplied by the user or found in project files
+- **External evidence**: current information supported by cited sources
+- **Inferred**: a reversible interpretation supported by available evidence
+- **Unknown**: information that cannot yet be determined
 
-**For ALL Business Planning Tasks:**
-- **ALWAYS use** business-planning-workflow.md
-- **No exceptions**: Business decisions involve people and money
-- **Full documentation required**: Every project gets complete evaluation
+Proceed with reversible inferences and label material assumptions. Ask the user when an unknown changes the business outcome, current scope, authority, or a major design decision. Continue unaffected work when useful progress remains possible.
 
-**Rationale**:
-- New businesses and products involve significant decisions with real consequences
-- Every idea deserves rigorous evaluation regardless of perceived simplicity
-- Complete documentation enables learning from past decisions
+For current market, competitor, product, price, or regulatory claims, research the web and record the access date and source. Use the current session date rather than a hard-coded year.
 
-**For Other Task Types** (session processing, decision recording, proposal prep):
-- Execute specific task definition directly
-- These are independent tasks, not part of core workflow
+## Work Boundaries
 
-## Core Principles
+- Preserve the user's stated outcome and exclusions.
+- Treat discovered ideas, risks, and possible artifacts as candidates. Include them when they change the requested outcome, protect a required boundary, serve a downstream consumer, or provide necessary evidence.
+- Treat reuse, no-change, and evidence-backed decline as valid conclusions.
+- Request approval before changing an agreed business outcome, MVP scope, or major design direction.
+- Create or update files only for the requested outcome and its required dependencies.
+- Complete the task when the requested artifact exists, its important claims and assumptions are distinguishable, and the next consumer can use it.
 
-### Plan Injection [MANDATORY ENFORCEMENT]
-**All tasks require Plan Injection for BLOCKING READs:**
-- Task-analysis.md Step 8 scans and identifies ALL BLOCKING READ requirements
-- Work plans MUST contain every BLOCKING READ from workflow/tasks/rules
-- Each phase verifies its BLOCKING READs are in the plan
-- Gates verify Plan Injection evidence before proceeding
-- Missing ANY BLOCKING READ = IMMEDIATE HALT
+## Project Files
 
-### Task Definition Loading
-**Task definitions define WHAT to build - never skip them:**
-- Verify entry gates before proceeding
-- Follow Required Rules section in each task definition
+Store deliverables under `projects/[project-name]/`:
 
-### Rule Application
-**Apply rules based on task type from task-analysis:**
-- Rules are loaded progressively as needed
-- Each task definition specifies its required rules
-- Unload task-specific rules after completion
+- `01-planning/`: business plans and market research
+- `02-requirements/`: product requirements and MVP definitions
+- `03-design/`: design requirements when needed
+- `04-prompts/`: prototype-generation prompts and requested usage guides
+- `05-sessions/`: meeting notes and session records
+- `06-decisions/`: significant decision records
+- `07-artifacts/`: proposals and other outputs
 
-### Quality Standards
-**Before marking any task complete:**
-- All deliverables created (business plan, requirements, prompts, etc.)
-- All quality checks satisfied
-- Task exit conditions are satisfied
-- Work documented as needed
+Preserve links between dependent documents, such as requirements tracing to the business plan and prototype prompts tracing to the requirements they implement.
 
-## Approval Points
+## Quality Check
 
-**Principle**: Get user approval at significant milestones.
+Before reporting completion:
 
-Common approval points:
-- When recommending a workflow for Standard/Complex tasks
-- After creating business plan or requirements documents
-- After generating prototype prompts
-- When business approach changes significantly
-- At task definition specified stop points
-
-**VIOLATIONS TO PREVENT:**
-- Work plan without ALL BLOCKING READs = RETURN TO TASK ANALYSIS
-- Skipping ANY BLOCKING READ = IMMEDIATE HALT
-- Proceeding without task definition compliance = BLOCKING ERROR
-
-## Quality Standards
-
-**Universal quality requirements:**
-- Follow documented business frameworks (BMC, Value Proposition Canvas, etc.)
-- All deliverables must be complete and well-structured
-- Follow standards defined in business-specific rules
-- Each task definition specifies its quality gates
-
-## Metacognition Checkpoints
-
-Perform self-assessment at these mandatory points:
-- Task type changes
-- Unexpected issues occur
-- Completing a meaningful unit of work
-- Before starting new phase
-- After completing each task from work plan
-
-## Context Management
-
-**Guidelines**:
-- Load rules progressively, not all at once
-- Unload task-specific rules after completion
-- Keep only frequently-used rules loaded
-- If context feels constrained, ask user for cleanup guidance
-
-## Error Recovery
-
-When stuck or encountering errors:
-1. Re-read current task definition
-2. Check if required rules are loaded
-3. Look for common pitfalls in business planning
-4. If unable to resolve, ask user for clarification
-
-## File Organization
-
-**Tasks** (.agents/tasks/):
-- task-analysis.md: **Entry point**
-- business-plan-creation.md: Business plan generation
-- requirements-definition.md: Product requirements definition
-- prompt-generation.md: Prototype prompt generation
-- design-specification.md: Design requirements (optional)
-- session-processing.md: Meeting notes and session processing
-- decision-recording.md: Decision documentation
-- proposal-preparation.md: Proposal and presentation prep
-
-**Workflows** (.agents/workflows/):
-- business-planning-workflow.md: Standard/Complex scale workflow
-
-**Context Maps** (.agents/context-maps/):
-- task-rule-matrix.yaml: Task-to-rule mappings
-
-**Core Rules** (.agents/rules/core/):
-- metacognition.md: Self-assessment
-- documentation-criteria.md: Documentation criteria
-
-**Business Rules** (.agents/rules/business/):
-- business-model-canvas.md: Business Model Canvas framework
-- value-proposition.md: Value Proposition Canvas
-- market-analysis.md: Market research and competitive analysis
-- mvp-definition.md: MVP definition methodologies
-- prompt-engineering.md: Prompt engineering for prototypes
-- design-thinking.md: Design thinking methodologies
-- decision-framework.md: Decision-making frameworks
-
-## Anti-Patterns to Avoid
-
-1. **Skipping task-analysis.md** → ALWAYS start with task analysis
-2. **Loading all rules upfront** → Load progressively based on task needs
-3. **Ignoring task entry/exit conditions** → Verify gates at each step
-4. **Working without task definitions** → Task definitions define WHAT to build
-5. **Assuming workflow is always needed** → Simple tasks can use direct task definitions
-6. **Premature workflow selection** → Let task-analysis determine the approach
-7. **Creating business plans without market research** → Always validate assumptions
-8. **Generating prompts without requirements** → Requirements must come first
-
-## Success Metrics
-
-Track internally:
-- Task completion rate
-- Rules actually used vs loaded
-- Quality checks passing rate (should be 100%)
-- Appropriate path selection (direct vs workflow)
-- Business plan quality and completeness
-- Prototype prompt effectiveness
-
-## Project Organization
-
-All project deliverables are stored in `projects/[project-name]/`:
-- `01-planning/`: Business plans and market research
-- `02-requirements/`: Product requirements and MVP definition
-- `03-design/`: Design requirements (optional)
-- `04-prompts/`: Prototype generation prompts
-- `05-sessions/`: Meeting notes and session records
-- `06-decisions/`: Decision logs and Go/NoGo records
-- `07-artifacts/`: Prototypes, presentations, research materials
+1. Verify the deliverable against the selected task's completion criteria.
+2. Check that external claims are cited and material assumptions are labeled.
+3. Confirm that every required artifact and follow-up action serves the requested outcome or a named downstream consumer.
+4. Summarize what was created or changed, remaining unknowns, and the next optional action.

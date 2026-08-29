@@ -2,109 +2,32 @@
 
 ## Purpose
 
-Guide business model design using the Business Model Canvas framework.
+Use the Business Model Canvas to expose the dependencies and trade-offs that affect the current business decision.
 
-## Business Model Canvas Components
+## Application
 
-### 1. Customer Segments
-- Who are we creating value for?
-- Who are our most important customers?
-- Segments: Mass market, Niche market, Segmented, Diversified, Multi-sided
+Start with the selected customer and value proposition. Add a canvas component when its answer changes viability, validation, cost, or the next decision.
 
-### 2. Value Propositions
-- What value do we deliver to the customer?
-- Which problems are we helping to solve?
-- What needs are we satisfying?
-- Elements: Newness, Performance, Customization, Design, Brand/Status, Price, Cost reduction, Risk reduction, Accessibility, Convenience/Usability
+| Component | Decision it informs |
+|---|---|
+| Customer Segments | Whose problem and willingness to act are being tested |
+| Value Propositions | Which job, pain, or gain the offer addresses |
+| Channels | How the selected customer discovers, evaluates, obtains, or uses the offer |
+| Customer Relationships | What interaction or support the model depends on |
+| Revenue Streams | Who pays, for what value, and under what model |
+| Key Resources | Which assets are necessary to deliver the selected value |
+| Key Activities | Which work is essential to create and deliver that value |
+| Key Partnerships | Which external dependency materially affects delivery or risk |
+| Cost Structure | Which costs determine feasibility or pricing |
 
-### 3. Channels
-- Through which channels do customers want to be reached?
-- How are we reaching them now?
-- Phases: Awareness, Evaluation, Purchase, Delivery, After-sales
+For an early validation plan, focus on the components needed to test the customer, value, channel, and payment assumptions. Expand the canvas when later execution or investment decisions require the additional detail.
 
-### 4. Customer Relationships
-- What type of relationship does each segment expect?
-- Which have we established?
-- Types: Personal assistance, Dedicated personal assistance, Self-service, Automated services, Communities, Co-creation
+## Evidence
 
-### 5. Revenue Streams
-- For what value are customers willing to pay?
-- For what do they currently pay?
-- Types: Asset sale, Usage fee, Subscription fees, Lending/Renting/Leasing, Licensing, Brokerage fees, Advertising
+Distinguish user-provided facts, external evidence, inferred relationships, and unknowns. Check internal consistency, such as whether the selected channel can reach the customer, the activities can deliver the value, and the revenue can support the material costs.
 
-### 6. Key Resources
-- What resources do our value propositions require?
-- Types: Physical, Intellectual, Human, Financial
+## Completion Criteria
 
-### 7. Key Activities
-- What key activities do our value propositions require?
-- Types: Production, Problem solving, Platform/network
-
-### 8. Key Partnerships
-- Who are our key partners/suppliers?
-- Types: Strategic alliances, Coopetition, Joint ventures, Buyer-supplier relationships
-
-### 9. Cost Structure
-- What are the most important costs?
-- Types: Cost-driven, Value-driven
-- Characteristics: Fixed costs, Variable costs, Economies of scale, Economies of scope
-
-## Application Guidelines
-
-### For New Business Planning
-1. Start with Customer Segments and Value Propositions
-2. Define how to reach and retain customers (Channels, Relationships)
-3. Identify Revenue Streams
-4. Determine Key Resources and Activities needed
-5. Identify Key Partnerships
-6. Calculate Cost Structure
-
-### For MVP Definition
-Focus on:
-- Core customer segment
-- Essential value proposition
-- Minimum viable channels
-- Critical key activities and resources
-- Basic revenue model
-
-### Revenue Model Design
-Consider:
-- Pricing strategy (Value-based, Cost-plus, Market-based)
-- Revenue timing (One-time, Recurring, Usage-based)
-- Payment model (Freemium, Subscription, Tiered, Pay-per-use)
-
-### Cost Optimization
-- Identify fixed vs variable costs
-- Determine critical costs for MVP
-- Plan for scalability
-- Consider lean startup approach
-
-## Common Patterns
-
-### SaaS Business Model
-- Customer Segments: Specific industry or role
-- Value Proposition: Efficiency, automation, insights
-- Channels: Online, direct sales, partners
-- Revenue: Subscription (Monthly/Annual)
-- Key Resources: Platform, technology, customer data
-
-### Marketplace Business Model
-- Customer Segments: Multi-sided (buyers and sellers)
-- Value Proposition: Access, convenience, trust
-- Revenue: Transaction fees, commissions, advertising
-- Key Activities: Platform management, curation
-
-### Freemium Model
-- Revenue: Free tier + paid premium features
-- Customer Relationships: Self-service + upselling
-- Key Activities: User acquisition, conversion optimization
-
-## Quality Checklist
-
-□ All 9 components addressed
-□ Customer segments clearly defined
-□ Value proposition compelling and specific
-□ Revenue streams identified and realistic
-□ Cost structure viable
-□ Business model internally consistent
-□ MVP-compatible (scalable from minimal to full)
+- Included components affect the current decision or validation plan.
+- Customer, value, delivery, revenue, and cost assumptions are traceable.
+- Material dependencies and contradictions are visible.

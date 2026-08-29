@@ -2,144 +2,50 @@
 
 ## Purpose
 
-Conduct comprehensive market research and competitive analysis for business planning.
+Gather the current external evidence needed to test a business claim or make the next planning decision.
 
-## Market Analysis Components
+## Research Scope
 
-### 1. Market Size and Opportunity
-- **TAM (Total Addressable Market)**: Total market demand
-- **SAM (Serviceable Addressable Market)**: Segment you can target
-- **SOM (Serviceable Obtainable Market)**: What you can realistically capture
-- Growth rate and trends
-- Market drivers and barriers
+Begin with the decision the research must inform. Select research areas according to that decision:
 
-### 2. Target Market Segmentation
-- Demographic: Age, gender, income, education, occupation
-- Geographic: Location, urban/rural, climate
-- Psychographic: Lifestyle, values, attitudes, interests
-- Behavioral: Usage patterns, benefits sought, loyalty
-- B2B: Industry, company size, decision-making process
+- customer segment and problem evidence;
+- market size or growth;
+- competitors and substitutes;
+- pricing and business models;
+- adoption, regulation, or technology trends;
+- customer behavior or feedback.
 
-### 3. Customer Personas
-Create 2-3 detailed personas:
-- Name and background
-- Demographics
-- Goals and motivations
-- Pain points and frustrations
-- Buying behavior
-- Information sources
-- Decision criteria
+A standard market-size calculation, persona set, or competitor matrix is useful when its result changes the decision. Discovery alone does not require every research format.
 
-### 4. Competitive Analysis
-#### Direct Competitors
-- Similar products/services
-- Same target market
-- Direct substitutes
+## Source Selection
 
-#### Indirect Competitors
-- Different solutions to same problem
-- Alternative approaches
-- Potential future competitors
+Prefer current primary and authoritative sources:
 
-#### Analysis Framework
-For each competitor, assess:
-- Product/service offering
-- Pricing strategy
-- Market positioning
-- Strengths and weaknesses
-- Market share
-- Customer reviews/feedback
+- government and regulatory data;
+- company product, pricing, and financial disclosures;
+- original research and industry bodies;
+- direct customer evidence.
 
-### 5. Competitive Positioning
-- **Positioning Map**: Plot competitors on 2-3 key dimensions
-- **Differentiation**: How you stand out
-- **Competitive Advantage**: Sustainable advantages
-- **Market Gaps**: Underserved segments or needs
+Use secondary analysis to add context or identify leads. Cross-check material claims when independent sources are available.
 
-### 6. Market Trends
-- Industry trends
-- Technology trends
-- Regulatory changes
-- Economic factors
-- Social/cultural shifts
+For each current claim, record the source, publication date when available, access date, geography or segment, and material limitations. Search using the current session date and verify that older data still applies before presenting it as current.
 
-## Research Methods
+## Analysis
 
-### Primary Research
-- Customer interviews
-- Surveys and questionnaires
-- Focus groups
-- User testing
-- Direct observation
+Distinguish:
 
-### Secondary Research
-- Industry reports
-- Market research databases
-- Government statistics
-- Academic studies
-- News and media
-- Competitor websites and marketing
+- **Observed**: directly supported by the source
+- **Inferred**: a conclusion drawn from one or more sources
+- **Unknown**: evidence unavailable or insufficient for the decision
 
-### Online Research (search the web)
-- Industry analysis and reports
-- Competitor research
-- Market trends
-- Customer reviews and feedback
-- Technology developments
-- **Always use SESSION_BASELINE_DATE for current/recent searches**
+For market sizing, explain the calculation and assumptions. Use TAM, SAM, or SOM only when the relevant scope can be supported; an evidence-backed range or bottom-up estimate is acceptable when it better represents uncertainty.
 
-## Competitive Analysis Template
+For competitors, compare the alternatives customers actually use on dimensions that affect the selected value proposition. Include a competitor when it changes positioning, validation, pricing, or risk.
 
-```markdown
-## Competitor: [Name]
+## Completion Criteria
 
-### Overview
-- Product/Service: [Description]
-- Target Market: [Segment]
-- Positioning: [How they position themselves]
-- Pricing: [Pricing model]
-
-### Strengths
-- [Strength 1]
-- [Strength 2]
-
-### Weaknesses
-- [Weakness 1]
-- [Weakness 2]
-
-### Market Share/Presence
-[Estimate or data]
-
-### Key Takeaways
-[What we learn from this competitor]
-```
-
-## Market Validation Checklist
-
-□ Market size estimated with data sources
-□ Target segments clearly defined
-□ Personas created based on research
-□ Competitors identified and analyzed
-□ Market gaps identified
-□ Competitive positioning clear
-□ Market trends understood
-□ Validation assumptions tested
-□ Data sources cited
-
-## Red Flags to Watch For
-
-- **No clear market need**: Problem not significant enough
-- **Saturated market**: Too many strong competitors
-- **Shrinking market**: Declining demand
-- **High barriers to entry**: Difficult to compete
-- **Unclear differentiation**: Can't distinguish from competitors
-- **Weak validation**: Assumptions not tested
-
-## Quality Standards
-
-- Use recent data (within 1-2 years)
-- Cite all sources
-- Cross-validate findings
-- Test assumptions with real customers
-- Be realistic about market opportunity
-- Acknowledge limitations and uncertainties
+- Research scope traces to a named planning decision.
+- Material claims have inspectable sources and dates.
+- Observations, inferences, calculations, and unknowns are distinguishable.
+- Contradicting evidence and material limitations remain visible.
+- Research stops when the decision has sufficient evidence or the exact remaining unknown is clear.
